@@ -32,3 +32,13 @@ body {
   background: black;
   border: 1px solid red;
 }
+
+.hit {
+  background: red;
+  border: 1px solid black;
+}
+
+.miss {
+  background: teal;
+  border: 1px solid black;
+}

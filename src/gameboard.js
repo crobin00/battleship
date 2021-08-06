@@ -3,6 +3,8 @@ import { createShip } from './ships.js';
 
 const createGameboard = function () {
   const gameboard = [];
+
+  //Initially creation of 10x10 gameboard array
   const set = () => {
     for (let i = 0; i < 10; i++) {
       gameboard.push([]);
@@ -24,6 +26,7 @@ const createGameboard = function () {
     }
   };
 
+  //Receives coordinates and determines whether those coords hit a ship or not
   const receiveAttack = function (ship, yCord, xCord) {
     if (gameboard[yCord][xCord] === 'ship') {
       gameboard[yCord][xCord] = 'hit';

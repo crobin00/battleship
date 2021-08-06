@@ -1,5 +1,11 @@
-export { displayGameboards, displayShipHorizontally, displayShipVertically };
+export {
+  displayGameboards,
+  displayShipHorizontally,
+  displayShipVertically,
+  attackShip,
+};
 
+//Creates 10x10 div elements
 function displayGameboards() {
   const playerDiv = document.querySelector('#player-board');
   const opponentDiv = document.querySelector('#opponent-board');
@@ -84,6 +90,44 @@ function displayShipVertically(
         const shipRowDiv = opponentDiv.querySelector(`[data-row='${i}']`);
         const shipDiv = shipRowDiv.querySelector(`[data-col='${j}']`);
         shipDiv.classList.add('ship');
+      }
+    }
+  }
+}
+
+function attackShip(board, ship, yCord, xCord, selectBoardDiv) {
+  board.receiveAttack(ship, yCord, xCord);
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      if (board.getGameboard()[i][j] === 'hit' && selectBoardDiv == 'player') {
+        const playerDiv = document.querySelector('#player-board');
+        const shipRowDiv = playerDiv.querySelector(`[data-row='${i}']`);
+        const shipDiv = shipRowDiv.querySelector(`[data-col='${j}']`);
+        shipDiv.classList.add('hit');
+        shipDiv.classList.remove('ship');
+      } else if (
+        board.getGameboard()[i][j] === 'hit' &&
+        selectBoardDiv == 'opponent'
+      ) {
+        const opponentDiv = document.querySelector('#opponent-board');
+        const shipRowDiv = opponentDiv.querySelector(`[data-row='${i}']`);
+        const shipDiv = shipRowDiv.querySelector(`[data-col='${j}']`);
+        shipDiv.classList.add('hit');
+        shipDiv.classList.remove('ship');
+      }
+      if (board.getGameboard()[i][j] === 'miss' && selectBoardDiv == 'player') {
+        const playerDiv = document.querySelector('#player-board');
+        const shipRowDiv = playerDiv.querySelector(`[data-row='${i}']`);
+        const shipDiv = shipRowDiv.querySelector(`[data-col='${j}']`);
+        shipDiv.classList.add('miss');
+      } else if (
+        board.getGameboard()[i][j] === 'miss' &&
+        selectBoardDiv == 'opponent'
+      ) {
+        const opponentDiv = document.querySelector('#opponent-board');
+        const shipRowDiv = opponentDiv.querySelector(`[data-row='${i}']`);
+        const shipDiv = shipRowDiv.querySelector(`[data-col='${j}']`);
+        shipDiv.classList.add('miss');
       }
     }
   }
