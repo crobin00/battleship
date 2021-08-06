@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  margin: 50px;
+}
+
+#player-board,
+#opponent-board {
+  width: 45vw;
+  height: 20vh;
+  margin: 20px;
+}
+
+.rows {
+  display: flex;
+  height: 25%;
+}
+
+.cols {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.ship {
+  background: black;
+  border: 1px solid red;
+}

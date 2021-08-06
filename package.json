@@ -1,0 +1,25 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crobin00/battleship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crobin00/battleship/issues"
+  },
+  "homepage": "https://github.com/crobin00/battleship#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.9",
+    "jest": "^27.0.6",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
