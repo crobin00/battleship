@@ -2,7 +2,6 @@ export {
   displayGameboards,
   displayShipHorizontally,
   displayShipVertically,
-  attackShip,
   checkCorrectShip,
 };
 
@@ -148,172 +147,166 @@ function attackShip(board, yCord, xCord, selectBoardDiv, ship = null) {
 
 function checkCorrectShip(e, allShips, board, selectBoardDiv) {
   if (
-    e.target.classList.contains('horizontal') &&
-    parseInt(e.target.parentElement.dataset.row) === allShips.carrier.y &&
-    parseInt(e.target.dataset.col) >= allShips.carrier.x &&
-    parseInt(e.target.dataset.col) <
-      allShips.carrier.x + allShips.carrier.ship.length
+    e.classList.contains('horizontal') &&
+    parseInt(e.parentElement.dataset.row) === allShips.carrier.y &&
+    parseInt(e.dataset.col) >= allShips.carrier.x &&
+    parseInt(e.dataset.col) < allShips.carrier.x + allShips.carrier.ship.length
   ) {
     console.log('opponent carrier');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.carrier.ship
     );
   } else if (
-    e.target.classList.contains('vertical') &&
-    parseInt(e.target.dataset.col) === allShips.carrier.x &&
-    parseInt(e.target.parentElement.dataset.row) >= allShips.carrier.y &&
-    parseInt(e.target.parentElement.dataset.row) <
+    e.classList.contains('vertical') &&
+    parseInt(e.dataset.col) === allShips.carrier.x &&
+    parseInt(e.parentElement.dataset.row) >= allShips.carrier.y &&
+    parseInt(e.parentElement.dataset.row) <
       allShips.carrier.y + allShips.carrier.ship.length
   ) {
     console.log('opponent carrier');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.carrier.ship
     );
   } else if (
-    e.target.classList.contains('horizontal') &&
-    parseInt(e.target.parentElement.dataset.row) === allShips.battleship.y &&
-    parseInt(e.target.dataset.col) >= allShips.battleship.x &&
-    parseInt(e.target.dataset.col) <
+    e.classList.contains('horizontal') &&
+    parseInt(e.parentElement.dataset.row) === allShips.battleship.y &&
+    parseInt(e.dataset.col) >= allShips.battleship.x &&
+    parseInt(e.dataset.col) <
       allShips.battleship.x + allShips.battleship.ship.length
   ) {
     console.log('opponent battleship');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.battleship.ship
     );
   } else if (
-    e.target.classList.contains('vertical') &&
-    parseInt(e.target.dataset.col) === allShips.battleship.x &&
-    parseInt(e.target.parentElement.dataset.row) >= allShips.battleship.y &&
-    parseInt(e.target.parentElement.dataset.row) <
+    e.classList.contains('vertical') &&
+    parseInt(e.dataset.col) === allShips.battleship.x &&
+    parseInt(e.parentElement.dataset.row) >= allShips.battleship.y &&
+    parseInt(e.parentElement.dataset.row) <
       allShips.battleship.y + allShips.battleship.ship.length
   ) {
     console.log('opponent battleship');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.battleship.ship
     );
   }
   if (
-    e.target.classList.contains('horizontal') &&
-    parseInt(e.target.parentElement.dataset.row) === allShips.cruiser.y &&
-    parseInt(e.target.dataset.col) >= allShips.cruiser.x &&
-    parseInt(e.target.dataset.col) <
-      allShips.cruiser.x + allShips.cruiser.ship.length
+    e.classList.contains('horizontal') &&
+    parseInt(e.parentElement.dataset.row) === allShips.cruiser.y &&
+    parseInt(e.dataset.col) >= allShips.cruiser.x &&
+    parseInt(e.dataset.col) < allShips.cruiser.x + allShips.cruiser.ship.length
   ) {
     console.log('opponent cruiser');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.cruiser.ship
     );
   } else if (
-    e.target.classList.contains('vertical') &&
-    parseInt(e.target.dataset.col) === allShips.cruiser.x &&
-    parseInt(e.target.parentElement.dataset.row) >= allShips.cruiser.y &&
-    parseInt(e.target.parentElement.dataset.row) <
+    e.classList.contains('vertical') &&
+    parseInt(e.dataset.col) === allShips.cruiser.x &&
+    parseInt(e.parentElement.dataset.row) >= allShips.cruiser.y &&
+    parseInt(e.parentElement.dataset.row) <
       allShips.cruiser.y + allShips.cruiser.ship.length
   ) {
     console.log('opponent cruiser');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.cruiser.ship
     );
   }
   if (
-    e.target.classList.contains('horizontal') &&
-    parseInt(e.target.parentElement.dataset.row) === allShips.submarine.y &&
-    parseInt(e.target.dataset.col) >= allShips.submarine.x &&
-    parseInt(e.target.dataset.col) <
+    e.classList.contains('horizontal') &&
+    parseInt(e.parentElement.dataset.row) === allShips.submarine.y &&
+    parseInt(e.dataset.col) >= allShips.submarine.x &&
+    parseInt(e.dataset.col) <
       allShips.submarine.x + allShips.submarine.ship.length
   ) {
     console.log('opponent submarine');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.submarine.ship
     );
   } else if (
-    e.target.classList.contains('vertical') &&
-    parseInt(e.target.dataset.col) === allShips.submarine.x &&
-    parseInt(e.target.parentElement.dataset.row) >= allShips.submarine.y &&
-    parseInt(e.target.parentElement.dataset.row) <
+    e.classList.contains('vertical') &&
+    parseInt(e.dataset.col) === allShips.submarine.x &&
+    parseInt(e.parentElement.dataset.row) >= allShips.submarine.y &&
+    parseInt(e.parentElement.dataset.row) <
       allShips.submarine.y + allShips.submarine.ship.length
   ) {
     console.log('opponent submarine');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.submarine.ship
     );
   }
   if (
-    e.target.classList.contains('horizontal') &&
-    parseInt(e.target.parentElement.dataset.row) === allShips.destroyer.y &&
-    parseInt(e.target.dataset.col) >= allShips.destroyer.x &&
-    parseInt(e.target.dataset.col) <
+    e.classList.contains('horizontal') &&
+    parseInt(e.parentElement.dataset.row) === allShips.destroyer.y &&
+    parseInt(e.dataset.col) >= allShips.destroyer.x &&
+    parseInt(e.dataset.col) <
       allShips.destroyer.x + allShips.destroyer.ship.length
   ) {
     console.log('opponent destroyer');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.destroyer.ship
     );
   } else if (
-    e.target.classList.contains('vertical') &&
-    parseInt(e.target.dataset.col) === allShips.destroyer.x &&
-    parseInt(e.target.parentElement.dataset.row) >= allShips.destroyer.y &&
-    parseInt(e.target.parentElement.dataset.row) <
+    e.classList.contains('vertical') &&
+    parseInt(e.dataset.col) === allShips.destroyer.x &&
+    parseInt(e.parentElement.dataset.row) >= allShips.destroyer.y &&
+    parseInt(e.parentElement.dataset.row) <
       allShips.destroyer.y + allShips.destroyer.ship.length
   ) {
     console.log('opponent destroyer');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv,
       allShips.destroyer.ship
     );
   } else if (
-    !e.target.classList.contains('horizontal') &&
-    !e.target.classList.contains('vertical')
+    !e.classList.contains('horizontal') &&
+    !e.classList.contains('vertical')
   ) {
     console.log('miss');
     attackShip(
       board,
-      e.target.parentElement.dataset.row,
-      e.target.dataset.col,
+      e.parentElement.dataset.row,
+      e.dataset.col,
       selectBoardDiv
     );
   }
-}
-
-opponentAttack() {
-    const playerDiv = document.querySelector("#player-board");
 }

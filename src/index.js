@@ -4,13 +4,15 @@ import {
   displayGameboards,
   displayShipHorizontally,
   displayShipVertically,
-  attackShip,
   checkCorrectShip,
 } from './dom.js';
 
 const opponentDiv = document.querySelector('#opponent-board');
 let playerTurn = false;
 let opponentTurn = false;
+let gameOver = false;
+let randomY = 0;
+let randomX = 0;
 
 let playerShips = {
   carrier: {
@@ -161,20 +163,26 @@ opponentShips.destroyer.y = 0;
 opponentShips.destroyer.x = 9;
 opponentShips.destroyer.ship = opponentDestroyer;
 
-while (!gameOver) {
-  if (playerTurn) {
-    opponentDiv.addEventListener('click', (e) => {
-      checkCorrectShip(e, opponentShips, opponentBoard, 'opponent');
-      console.log(e.target);
-      console.log(e.target.parentElement);
-      playerTurn = false;
-      opponentTurn = true;
-    });
+playerTurn = true;
+
+document.addEventListener('click', (e) => {
+  randomY = Math.round(Math.random() * 9);
+  randomX = Math.round(Math.random() * 9);
+  if (e.target.parentElement.parentElement.id == 'opponent-board') {
+    //Player move
+    checkCorrectShip(e.target, opponentShips, opponentBoard, 'opponent');
+
+    //Opponent move
+    checkCorrectShip(
+      e.target.parentElement.parentElement.parentElement.children[0].children[
+        randomY
+      ].children[randomX],
+      playerShips,
+      playerBoard,
+      'player'
+    );
   }
-  if (opponentTurn) {
-    opponentAttack();
-  }
-}
+});
 
 console.log(playerBoard.getGameboard());
 console.log(opponentBoard.getGameboard());
